@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { mockRegister } from 'authAPI/authAPI';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
+import { mockRegister } from 'api/authAPI';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from 'store';
 import { registerFailure, registerSuccess } from 'store/features/registrationSlice/RegistrationSlice';
 
 const Register: React.FC = () => {
-  const navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
   const error = useSelector((state: RootState) => state.register.error);
   const dispatch: AppDispatch = useDispatch();
 

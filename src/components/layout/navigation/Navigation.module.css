@@ -1,0 +1,35 @@
+.header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .navigation ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .navigation li {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .navigation a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navigation li:hover {
+    text-decoration: underline;
+  }
+  

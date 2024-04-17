@@ -1,0 +1,35 @@
+.imageContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .thumbnailContainer {
+    margin-right: 16px;
+  }
+  
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .imageInfo {
+    flex: 1;
+  }
+  
+  .image {
+    width: 50%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .title {
+    font-size: 18px;
+    margin: 0;
+  }
+  

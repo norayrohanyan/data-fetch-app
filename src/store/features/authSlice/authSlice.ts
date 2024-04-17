@@ -34,7 +34,7 @@ const authSlice: Slice<IAuthState> = createSlice({
             state.user = null;
             state.token = null;
             state.error = null;
-            clearAuthState('user');
+            clearAuthState('email');
             clearAuthState('token');
         },
     },

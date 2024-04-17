@@ -1,14 +1,14 @@
 import { FC, useState, useEffect } from 'react';
-import { mockLogin } from 'authAPI/authAPI'; 
+import { mockLogin } from 'api/authAPI'; 
 import { useDispatch, useSelector } from  'react-redux'
 import { AppDispatch, RootState } from 'store';
 import { loginSuccess, loginFailure } from 'store/features/authSlice/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 const Login: FC = () => {
 
     const dispatch: AppDispatch = useDispatch();
     const error = useSelector((state: RootState) => state.auth.error);
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
 
     const [email, setUserEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
