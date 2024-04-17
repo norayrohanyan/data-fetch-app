@@ -1,12 +1,8 @@
 import { FC } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
-import Home from 'pages/Home';
-// import MainPage from 'pages/MainPage';
-// import Posts from 'components/layout/posts/Posts';
-// import Comments from 'components/layout/comments/Comments';
-// import Images from 'components/layout/images/Images';
+import Login from '../pages/login/Login';
+import Register from '../pages/register/Register';
+import Home from 'pages/home/Home';
 import ProtectedRoutes from './ProtectedRoute';
 
 const AppRouter: FC = () => {

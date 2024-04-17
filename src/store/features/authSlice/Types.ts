@@ -11,8 +11,8 @@ export interface IAuthState {
     token: string | null;
     error: string | null
 }
-export type AuthPayloadAction = PayloadAction<{ 
-    user: IUserInfo, 
-    token: string, 
+export type AuthPayloadAction = PayloadAction<{
+    user: IUserInfo,
+    token: string,
     error: string,
 }>;

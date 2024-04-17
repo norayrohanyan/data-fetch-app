@@ -2,6 +2,9 @@ import { FC, useEffect, useState } from "react";
 import { fetchData } from "api/dataAPI";
 import { IPosts } from "./types";
 import Post from "components/common/post/Post";
+import styles from "./Posts.module.css"; 
+import Loader from "components/common/loader/Loader";
+
 const Posts: FC = () => {
     const [posts, setPosts] = useState<IPosts[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -19,18 +22,20 @@ const Posts: FC = () => {
         };
         fetchPosts();
     }, []);
+
     return (
-        <div>
-            <h2>Posts</h2>
+        <div className={styles.postsContainer}>
+            <h2 className={styles.postsHeading}>Posts</h2>
             {loading ? (
-                <p>Loading...</p>
+                <Loader />
             ) : (
-                <div>
+                <div className={styles.postList}>
                     {posts.map((post) => (
-                        <Post key={post.id} title={post.title} body={post.body}/>
+                        <Post key={post.id} index={post.id} title={post.title} body={post.body}/>
                     ))}
                 </div>
-        )}
+            )}
+            <div className={styles.backgroundShapes}></div>
         </div>
     );
 };

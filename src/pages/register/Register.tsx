@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate, NavigateFunction } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { mockRegister } from 'api/authAPI';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from 'store';
 import { registerFailure, registerSuccess } from 'store/features/registrationSlice/RegistrationSlice';
+import styles from './Register.module.css';
 
 const Register: React.FC = () => {
-  const navigate: NavigateFunction = useNavigate();
+  const navigate = useNavigate();
   const error = useSelector((state: RootState) => state.register.error);
   const dispatch: AppDispatch = useDispatch();
 
@@ -15,8 +16,8 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!password || !email) {     
-        dispatch(registerFailure({error: 'Please enter both email and password'}));
+    if (!password || !email) {
+      dispatch(registerFailure({ error: 'Please enter both email and password' }));
       return;
     }
 
@@ -26,37 +27,37 @@ const Register: React.FC = () => {
         dispatch(registerSuccess({ email, password }));
         navigate('/login');
       } else {
-        dispatch(registerFailure({error: 'Email already exists'})); 
+        dispatch(registerFailure({ error: 'Email already exists' }));
       }
     } catch (error) {
-        dispatch(registerFailure({error: 'An error occurred while registering'})); 
+      dispatch(registerFailure({ error: 'An error occurred while registering' }));
     }
   };
 
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form} action="post">
+        <h2 className={styles.title}>Register</h2>
+        <div className={styles.inputContainer}>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className={styles.input}
+            placeholder="Email"
           />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className={styles.input}
+            placeholder="Password"
           />
+          <button type="submit" className={styles.button}>Register</button>
         </div>
-        <button type="submit">Register</button>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
+        {error && <div className={styles.error}>{error}</div>}
       </form>
     </div>
   );

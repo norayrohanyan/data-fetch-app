@@ -19,7 +19,7 @@ const RegistrationSlice: Slice<IRegistrationState> = createSlice({
             state.error = action.payload.error;
         }
     }
-}) 
+})
 
 export const { registerSuccess, registerFailure } = RegistrationSlice.actions;
 export default RegistrationSlice;
