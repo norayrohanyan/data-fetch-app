@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { mockRegister } from 'api/authAPI';
+import { registerFailure, registerSuccess } from 'store/features/registrationSlice/RegistrationSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from 'store';
-import { registerFailure, registerSuccess } from 'store/features/registrationSlice/RegistrationSlice';
+import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.css';
+import { mockRegister } from 'api/authAPI';
+import React, { useState } from 'react';
 
 const Register: React.FC = () => {
   const navigate = useNavigate();

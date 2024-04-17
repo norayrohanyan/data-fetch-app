@@ -1,11 +1,9 @@
-import React from 'react';
 import AppRouter from 'router/Router';
+import { FC } from 'react';
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
-    <React.StrictMode>
       <AppRouter />
-    </React.StrictMode>
   );
 };
 

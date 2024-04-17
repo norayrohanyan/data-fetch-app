@@ -1,9 +1,9 @@
-import { FC, useState, useEffect } from 'react';
-import { mockLogin } from 'api/authAPI';
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, RootState } from 'store';
 import { loginSuccess, loginFailure } from 'store/features/authSlice/authSlice';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { FC, useState, useEffect } from 'react';
+import { AppDispatch, RootState } from 'store';
+import { mockLogin } from 'api/authAPI';
 import styles from './Login.module.css';
 
 const Login: FC = () => {

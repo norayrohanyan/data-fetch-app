@@ -1,3 +1,4 @@
+import { HashRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -10,7 +11,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </Provider>
 );
 

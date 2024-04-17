@@ -1,9 +1,9 @@
-import { FC, useEffect } from 'react';
 import { Route, useNavigate, NavigateFunction } from 'react-router-dom';
 import Comments from 'components/layout/comments/Comments';
 import Images from 'components/layout/images/Images';
-import MainPage from 'pages/MainPage';
 import Posts from 'components/layout/posts/Posts';
+import { FC, useEffect } from 'react';
+import MainPage from 'pages/MainPage';
 
 const ProtectedRoutes: FC = () => {
   const navigate: NavigateFunction = useNavigate();

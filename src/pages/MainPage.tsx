@@ -1,6 +1,6 @@
-import { FC, ReactNode } from 'react';
 import Navigation from 'components/layout/navigation/Navigation';
 import { Routes } from 'react-router-dom';
+import { FC, ReactNode } from 'react';
 
 interface MainPageProps {
     children: ReactNode;
