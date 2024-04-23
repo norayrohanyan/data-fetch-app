@@ -1,28 +1,13 @@
-import { FC, useEffect, useState } from "react";
-import { IComments } from "./types";
-import { fetchData } from "api/dataAPI";
 import Comment from "components/common/comment/Comment";
-import styles from "./Comments.module.css";
 import Loader from "components/common/loader/Loader";
+import styles from "./Comments.module.css";
+import { useFetch } from "hooks/useFetch";
+import { fetchData } from "api/dataAPI";
+import { IComments } from "./types";
+import { FC } from "react";
 
-const Comments: FC = () => {
-    const [comments, setComments] = useState<IComments[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
-
-    useEffect(() => {
-        const fetchComments = async () => {
-            setLoading(true);
-            try {
-                const data: IComments[] = await fetchData<IComments>('comments', 'limit=20');
-                setComments(data);
-            } catch (e) {
-                console.error('Error fetching comments:', e);
-            }
-            setLoading(false);
-        };
-        fetchComments();
-    }, []);
-
+const Comments: FC = () => {  
+    const {data: comments, isLoading: loading} = useFetch<IComments[]>(() => fetchData<IComments>('IComments', 'limit=20'));
     return (
         <div className={styles.commentsContainer}>
             <h2 className={styles.commentsHeading}>Comments</h2>

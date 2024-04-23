@@ -1,27 +1,13 @@
-import { FC, useState, useEffect } from "react";
-import { IImages } from "./types";
-import { fetchData } from "api/dataAPI";
-import Image from "components/common/image/Image";
-import styles from "./Images.module.css";
 import Loader from "components/common/loader/Loader";
+import Image from "components/common/image/Image";
+import { useFetch } from "hooks/useFetch";
+import styles from "./Images.module.css";
+import { fetchData } from "api/dataAPI";
+import { IImages } from "./types";
+import { FC } from "react";
+
 const Images: FC = () => {
-    const [images, setImages] = useState<IImages[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
-
-    useEffect(() => {
-        const fetchImages = async () => {
-            setLoading(true);
-            try {
-                const data: IImages[] = await fetchData<IImages>('photos', 'limit=20');
-                setImages(data);
-            } catch (e) {
-                console.error('Error fetching images:', e);
-            }
-            setLoading(false);
-        };
-        fetchImages();
-    }, [])
-
+    const {data: images, isLoading: loading} = useFetch<IImages[]>(() => fetchData<IImages>('images', 'limit=20'));
     return (
         <div className={styles.imagesContainer}>
             <h2 className={styles.heading}>Images</h2>
