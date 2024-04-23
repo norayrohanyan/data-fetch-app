@@ -7,7 +7,7 @@ import { IComments } from "./types";
 import { FC } from "react";
 
 const Comments: FC = () => {  
-    const {data: comments, isLoading: loading} = useFetch<IComments[]>(() => fetchData<IComments>('IComments', 'limit=20'));
+    const {data: comments, isLoading: loading} = useFetch<IComments[]>(() => fetchData<IComments>('comments', 'limit=20'));
     return (
         <div className={styles.commentsContainer}>
             <h2 className={styles.commentsHeading}>Comments</h2>

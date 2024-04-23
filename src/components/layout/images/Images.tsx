@@ -7,7 +7,7 @@ import { IImages } from "./types";
 import { FC } from "react";
 
 const Images: FC = () => {
-    const {data: images, isLoading: loading} = useFetch<IImages[]>(() => fetchData<IImages>('images', 'limit=20'));
+    const {data: images, isLoading: loading} = useFetch<IImages[]>(() => fetchData<IImages>('photos', 'limit=20'));
     return (
         <div className={styles.imagesContainer}>
             <h2 className={styles.heading}>Images</h2>
