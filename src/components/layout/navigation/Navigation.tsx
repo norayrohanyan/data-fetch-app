@@ -27,13 +27,13 @@ const Navigation: FC = () => {
         </div>
         <ul className={`${styles["nav-menu"]} ${isMenuOpen ? styles["active"] : ""}`}>
           <li>
-            <Link to="/authenticated/posts">Posts</Link>
+            <Link to="/authenticated/posts" onClick={toggleMenu}>Posts</Link>
           </li>
           <li>
-            <Link to="/authenticated/comments">Comments</Link>
+            <Link to="/authenticated/comments" onClick={toggleMenu}>Comments</Link>
           </li>
           <li>
-            <Link to="/authenticated/images">Images</Link>
+            <Link to="/authenticated/images" onClick={toggleMenu}>Images</Link>
           </li>
         </ul>
         <button className={styles["logout-button"]} onClick={handleLogout}>
